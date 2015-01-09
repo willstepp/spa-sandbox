@@ -20,6 +20,16 @@ module WidgetApi
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+                 headers: %w(Origin Accept Authorization Content-Type If-Modified-Since If-None-Match x-csrf-token),
+                 expose: %w(ETag Cache-Control Content-Type Content-Length),
+                 methods: [:get, :put, :options, :post, :delete]
+      end
+    end
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
