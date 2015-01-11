@@ -8,7 +8,9 @@ A project for testing various SPA Frameworks.
 * Create Angular project to create a UI for the Widget API
 
   * ~~setup sandbox static site~~
-  * add angular to project
+  * ~~add Angular to project~~
+  * figure out how to lint, test, package, deploy
+  * create crud views for widgets api
 
 * Create Ember project to create a UI for the Widget API
 * Create React project to create a UI for the Widget API

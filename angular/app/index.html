@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="angularSandbox">
+  <head>
+    <title>Angular Sandbox</title>
+
+    <script src="js/libraries/angular.js"></script>
+    <script src="js/libraries/angular-route.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <script src="js/directives/directives.js"></script>
+    <script src="js/filters/filters.js"></script>
+    <script src="js/services/services.js"></script>
+
+    <!-- $(styles) -->
+
+  </head>
+  <body>
+    <h3>Angular Sandbox: {{ 'Running!' }}</h3>
+
+    <div ng-view></div>
+
+    <script type="text/javascript">
+      console.log('angular sandbox running...');
+    </script>
+
+    <!-- $(scripts) -->
+
+  </body>
+</html>
