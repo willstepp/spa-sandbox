@@ -12,10 +12,10 @@ gulp.task('sandbox', function () {
     res.render('index.html');
   });
 
-  var server = app.listen(process.env.PORT || 8000, function () {
+  var server = app.listen(process.env.PORT || 8003, function () {
     var host = server.address().address;
     var port = server.address().port;
-    console.log('angular sandbox listening at http://%s:%s', host, port);
+    console.log('mithril sandbox listening at http://%s:%s', host, port);
   });
 });
 
