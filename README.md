@@ -9,7 +9,7 @@ A project for testing various SPA Frameworks.
 
   * ~~setup sandbox static site~~
   * ~~add Angular to project~~
-  * figure out how to lint, test, package, deploy
+  * ~~figure out how to lint, test, package, deploy~~
   * create crud views for widgets api
 
 * Create Ember project to create a UI for the Widget API

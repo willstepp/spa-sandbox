@@ -1,1 +1,6 @@
 <h3>Widget Index</h3>
+<hr>
+
+<p ng-repeat="widget in widgets">
+  [{{widget.id}}] <a href="#/widgets/{{widget.id}}">{{widget.name}}</a> : {{widget.price}}
+</p>
