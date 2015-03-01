@@ -1,6 +1,8 @@
 <h3>Widget Index</h3>
 <hr>
-
+<a href="#/widgets/new">New widget</a>
+<br>
 <p ng-repeat="widget in widgets">
   [{{widget.id}}] <a href="#/widgets/{{widget.id}}">{{widget.name}}</a> : {{widget.price}}
+  <button ng-click="deleteWidget(widget.id)">Delete</button>
 </p>

@@ -1,1 +1,14 @@
-<h3>Widget New</h3>
+<h3>New widget</h3>
+<a href="#/widgets">..</a>
+<hr>
+<h6>Name:</h6>
+<input ng-model="widget.name" type="text"></input>
+<br>
+<h6>Desc:</h6>
+<textarea ng-model="widget.desc"></textarea>
+<br>
+<h6>Price:</h6>
+<input ng-model="widget.price" type="text"></input>
+<br>
+<br>
+<button ng-click="saveWidget(widget)">Save new widget</button>
