@@ -1,1 +1,9 @@
 node_modules
+bower_components
+
+build/transpiled
+build/*.html
+build/*.js
+build/*.css
+
+.DS_Store

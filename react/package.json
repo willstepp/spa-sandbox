@@ -12,6 +12,9 @@
     "express": "^4.10.7"
   },
   "devDependencies": {
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.3",
+    "gulp-jsx": "^0.7.0",
+    "gulp-react": "^2.1.0"
   }
 }
