@@ -2,90 +2,49 @@ var spa = spa || {};
 spa.common = spa.common || {};
 spa.common.ajax = (function () {
 
-  function get (url, success, error) {
+  var contentTypes = {
+    json:'application/json'
+  }
+
+  function send (options) {
     var xhr = new XMLHttpRequest();
+
+    //1) set callbacks
     xhr.onreadystatechange = function()
     {
       if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          if (success) {
-            success(JSON.parse(xhr.responseText));
-          }
+        if (xhr.status >= 200 && xhr.status < 400) {
+          options.success(xhr.responseText ? JSON.parse(xhr.responseText) : null);
         } else {
-          if (error) {
-            error(xhr);
+          if (options.error) {
+            options.error(xhr);
           }
         }
       }
     };
-    xhr.open("GET", url, true);
-    xhr.send();
-  }
 
-  function post (url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          if (success) {
-            success(JSON.parse(xhr.responseText));
-          }
-        } else {
-          if (error) {
-            error(xhr);
-          }
-        }
-      }
-    };
-    xhr.open("POST", url, true);
-    xhr.send(JSON.stringify(data));
-  }
+    //3) set http type and url
+    xhr.open(options.type, options.url, true);
 
-  function put (url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          if (success) {
-            success(JSON.parse(xhr.responseText));
-          }
-        } else {
-          if (error) {
-            error(xhr);
-          }
-        }
-      }
-    };
-    xhr.open("PUT", url, true);
-    xhr.send(JSON.stringify(data));
-  }
+    //4) set content type
+    if (options.contentType && contentTypes[options.contentType]){
+      xhr.setRequestHeader('Content-Type', contentTypes[options.contentType]);
+    } 
 
-  function destroy (url, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          if (success) {
-            success(JSON.parse(xhr.responseText));
-          }
-        } else {
-          if (error) {
-            error(xhr);
-          }
+    //5)set headers
+    if (options.headers) {
+      for (var key in options.headers) {
+        if (options.headers.hasOwnProperty(key)) {
+          xhr.setRequestHeader(key, options.headers[key]);
         }
       }
-    };
-    xhr.open("DELETE", url, true);
-    xhr.send();
+    }
+
+    //6) send with (optional) data
+    xhr.send(JSON.stringify(options.data));
   }
 
   return {
-    get:get,
-    post:post,
-    put:put,
-    destroy:destroy
+    send:send
   };
 })();

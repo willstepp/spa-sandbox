@@ -14,7 +14,7 @@ var libSource = [
 ];
 
 var appSource = [
-  'app/js/*.js', 
+  'app/js/*.js',
   'app/js/controllers/*.js',
   'app/js/directives/*.js',
   'app/js/filters/*.js',

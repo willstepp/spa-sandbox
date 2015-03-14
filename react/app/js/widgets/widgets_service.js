@@ -10,10 +10,15 @@ spa.widgets.service = (function () {
   }
 
   function all (callback, errback) {
-    ajax.get('http://localhost:3000/widgets.json', function (widgets) {
-      callback(widgets);
-    }, function (err) {
-      errback(err);
+    ajax.send({
+      type:'GET',
+      url:'http://localhost:3000/widgets.json',
+      success:function (widgets) {
+        callback(widgets);
+      },
+      error:function (err) {
+        errback(err);
+      }
     });
   }
 

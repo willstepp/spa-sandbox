@@ -12,6 +12,10 @@ class WidgetsController < ApplicationController
   def show
   end
 
+  def soft_delete
+    head :no_content
+  end
+
   # GET /widgets/new
   def new
     @widget = Widget.new

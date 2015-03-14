@@ -4,6 +4,7 @@ spa.widgets = spa.widgets || {};
 spa.widgets.views = (function () {
 
   var views = {
+    layout:'',
     index: function (options) {
       React.render(
         <WidgetIndex />,
@@ -13,6 +14,7 @@ spa.widgets.views = (function () {
   }
 
   function render (name, options) {
+    //render layout here
     views[name](options);
   }
 

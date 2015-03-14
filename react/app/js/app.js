@@ -1,7 +1,14 @@
 var spa = spa || {};
 spa.config = {
-  container:'ui-container'
+  app_container:'ui-app-container',
+  view_container:'ui-view-container'
 };
+
+function sendRootToRoute (route) {
+  if (window.location.pathname === '/') {
+    window.location.href = '#' + route;
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function (event) { 
 
@@ -11,10 +18,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     '/' : spa.widgets.controller.index_widgets
   });
   router.init();
+  sendRootToRoute('/');
 
-  if (window.location.pathname === '/') {
-    window.location.href = '#/';
-  }
-
-  console.log('react sandbox running...');
 });
