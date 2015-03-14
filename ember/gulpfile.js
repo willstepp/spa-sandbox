@@ -8,10 +8,11 @@ var emberTemplates = require('gulp-ember-templates');
 
 var jsSource = [
   'app/app.js',
-  'app/controllers/*.js',
-  'app/models/*.js',
-  'app/routes/*.js',
-  'app/views/*.js',
+  'app/controllers/**/*.js',
+  'app/models/**/*.js',
+  'app/routes/**/*.js',
+  'app/views/**/*.js',
+  'app/services/**/*.js',
   'build/templates.js'
 ];
 
@@ -35,7 +36,7 @@ gulp.task('package', ['templates'], function() {
 });
 
 gulp.task('templates', function(){
-  return gulp.src('app/templates/*.hbs')
+  return gulp.src('app/templates/**/*.hbs')
     .pipe(emberTemplates({
       compiler:require('./bower_components/ember/ember-template-compiler'),
       isHTMLBars:true
