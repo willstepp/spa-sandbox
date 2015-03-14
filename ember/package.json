@@ -1,0 +1,21 @@
+{
+  "name": "ember",
+  "version": "1.0.0",
+  "description": "starter-kit ===========",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.12.2",
+    "gulp-concat": "^2.5.2",
+    "gulp-declare": "^0.3.0",
+    "gulp-ember-handlebars": "^0.7.0",
+    "gulp-ember-templates": "^0.7.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-wrap": "^0.11.0"
+  }
+}
